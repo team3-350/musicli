@@ -15,7 +15,7 @@ export {
 
 export const unstable_settings = {
   // Ensure that reloading on `/modal` keeps a back button present.
-  initialRouteName: '(tabs)',
+  initialRouteName: 'auth-page',
 };
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
@@ -26,6 +26,8 @@ export default function RootLayout() {
     SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
     ...FontAwesome.font,
   });
+
+  const isAuthed = false;
 
   // Expo Router uses Error Boundaries to catch errors in the navigation tree.
   useEffect(() => {
@@ -42,6 +44,10 @@ export default function RootLayout() {
     return null;
   }
 
+  if (!isAuthed) {
+    return <AuthPage/>;
+  }
+
   return <RootLayoutNav />;
 }
 
@@ -56,4 +62,15 @@ function RootLayoutNav() {
       </Stack>
     </ThemeProvider>
   );
+}
+
+function AuthPage() {
+  const colorScheme = useColorScheme();
+    return (
+      <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
+        <Stack>
+          <Stack.Screen name="auth-page" options={{ headerShown: false }} />
+        </Stack>
+      </ThemeProvider>
+    )
 }
