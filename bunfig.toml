@@ -1,0 +1,2 @@
+[install.scopes]
+"@react-native-google-sign-in" = { token = "$NPM_TOKEN_GOOGLE_SIGN_IN", url = "https://npm.pkg.github.com/" }
