@@ -6,6 +6,7 @@
       "dependencies": {
         "@expo/ngrok": "^4.1.3",
         "@expo/vector-icons": "^14.1.0",
+        "@react-native-google-signin/google-signin": "^14.0.1",
         "@react-navigation/native": "^7.1.6",
         "expo": "~53.0.9",
         "expo-font": "~13.3.1",
@@ -353,6 +354,8 @@
     "@radix-ui/react-compose-refs": ["@radix-ui/react-compose-refs@1.1.2", "", { "peerDependencies": { "@types/react": "*", "react": "^16.8 || ^17.0 || ^18.0 || ^19.0 || ^19.0.0-rc" }, "optionalPeers": ["@types/react"] }, "sha512-z4eqJvfiNnFMHIIvXP3CY57y2WJs5g2v3X0zm9mEJkrkNv4rDxu+sg9Jh8EkXyeqBkB7SOcboo9dMVqhyrACIg=="],
 
     "@radix-ui/react-slot": ["@radix-ui/react-slot@1.2.0", "", { "dependencies": { "@radix-ui/react-compose-refs": "1.1.2" }, "peerDependencies": { "@types/react": "*", "react": "^16.8 || ^17.0 || ^18.0 || ^19.0 || ^19.0.0-rc" }, "optionalPeers": ["@types/react"] }, "sha512-ujc+V6r0HNDviYqIK3rW4ffgYiZ8g5DEHrGJVk4x7kTlLXRDILnKX9vAUYeIsLOoDpDJ0ujpqMkjH4w2ofuo6w=="],
+
+    "@react-native-google-signin/google-signin": ["@react-native-google-signin/google-signin@14.0.1", "", { "peerDependencies": { "expo": ">=52.0.40", "react": "*", "react-dom": "*", "react-native": "*" }, "optionalPeers": ["expo", "react-dom"] }, "sha512-2f903eaHiv/Ob96vsWZitz+Z0k2J2W0/C7Ygrr6ejAT2JVzJCatmjF/eq62MWhuTNdU2WDX/oePxMbpQW6k2UA=="],
 
     "@react-native/assets-registry": ["@react-native/assets-registry@0.79.2", "", {}, "sha512-5h2Z7/+/HL/0h88s0JHOdRCW4CXMCJoROxqzHqxdrjGL6EBD1DdaB4ZqkCOEVSW4Vjhir5Qb97C8i/MPWEYPtg=="],
 
