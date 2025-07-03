@@ -10,8 +10,13 @@ import * as SplashScreen from "expo-splash-screen";
 import { useEffect } from "react";
 import "react-native-reanimated";
 
+import AuthPage from "./auth-page";
+import HomePage from "./index";
+// (^) These might not be needed
+
 import { useColorScheme } from "@/components/useColorScheme";
 import { StatusBar } from "expo-status-bar";
+import { getSSO } from "@/components/ssoHandle";
 
 export {
   // Catch any errors thrown by the Layout component.
@@ -20,14 +25,11 @@ export {
 
 export const unstable_settings = {
   // Ensure that reloading on `/modal` keeps a back button present.
-  initialRouteName: "auth-page",
+  initialRouteName: "authpage",
 };
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
-
-// used to manage the state of the auth for debugging at the moment
-const isAuthed = false;
 
 export default function RootLayout() {
   const [loaded, error] = useFonts({
@@ -50,6 +52,10 @@ export default function RootLayout() {
     return null;
   }
 
+  // useEffect(() => {
+  //   const async userPrefferedMusicPlatform = await getSSO('userPrefferedMusicPlatform');
+  // })
+
   return <RootLayoutNav />;
 }
 
@@ -59,24 +65,8 @@ function RootLayoutNav() {
   return (
     <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
       <StatusBar style={colorScheme === "dark" ? "light" : "dark"} />
-      <DisplayStack />
+      {/* If no SSO, load AuthPage, otherwise load HomePage */}
+      {!getSSO("userPrefferedMusicPlatform") ? <AuthPage /> : <HomePage />}
     </ThemeProvider>
-  );
-}
-
-// split between showing login or not
-function DisplayStack() {
-  if (!isAuthed) {
-    return (
-      <Stack>
-        <Stack.Screen name="auth-page" options={{ headerShown: false }} />
-      </Stack>
-    );
-  }
-  return (
-    <Stack>
-      <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-      <Stack.Screen name="modal" options={{ presentation: "modal" }} />
-    </Stack>
   );
 }

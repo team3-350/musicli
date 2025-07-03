@@ -38,3 +38,7 @@ yarn-error.*
 
 # npm lock just in case
 package-lock.json
+
+# build directories
+android/
+ios/

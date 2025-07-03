@@ -1,12 +1,13 @@
 import { StyleSheet, TouchableHighlight } from "react-native";
 import { Text, View } from "@/components/Themed";
-import { Alert, Button } from "react-native";
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 import { useColorScheme } from "@/components/useColorScheme.web";
 
+import { setSSO } from "@/components/ssoHandle";
+
 const colorScheme = useColorScheme();
 
-export default function AuthPage() {
+export default function authpage() {
   return (
     <SafeAreaProvider>
       <SafeAreaView style={styles.container}>
@@ -14,21 +15,19 @@ export default function AuthPage() {
           <Text style={styles.welcome}>Welcome to Musicli</Text>
           <Text style={styles.subtitle}>Link an Account</Text>
         </View>
+
+        {/* Spotify button */}
         <TouchableHighlight
-          onPress={() => Alert.alert("Spotify Auth")}
+          onPress={() => setSSO("userPrefferedMusicPlatform", "Spotify")}
           style={styles.touchable}
           underlayColor={"white"}
         >
           <Text style={styles.text}>Spotify</Text>
         </TouchableHighlight>
+
+        {/* YTM button */}
         <TouchableHighlight
-          onPress={() => Alert.alert("Apple Music Auth")}
-          style={styles.touchable}
-        >
-          <Text style={styles.text}>Apple Music</Text>
-        </TouchableHighlight>
-        <TouchableHighlight
-          onPress={() => Alert.alert("YouTube Music Auth")}
+          onPress={() => setSSO("userPrefferedMusicPlatform", "ytm")}
           style={styles.touchable}
         >
           <Text style={styles.text}>YouTube Music</Text>
