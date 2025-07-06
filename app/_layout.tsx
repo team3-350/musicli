@@ -16,7 +16,7 @@ import HomePage from "./index";
 
 import { useColorScheme } from "@/components/useColorScheme";
 import { StatusBar } from "expo-status-bar";
-import { getSSO } from "@/components/ssoHandle";
+import { getSSO } from "@/components/handleSSO";
 
 export {
   // Catch any errors thrown by the Layout component.

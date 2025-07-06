@@ -1,7 +1,7 @@
 import { StyleSheet } from "react-native";
 import { Text, View } from "@/components/Themed";
 
-import { getSSO } from "@/components/ssoHandle";
+import { getSSO } from "@/components/handleSSO";
 
 const platformName = getSSO("userPrefferedMusicPlatform");
 
